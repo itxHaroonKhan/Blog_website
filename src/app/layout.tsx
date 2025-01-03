@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import Link from "next/link";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -27,7 +28,21 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        <header className="bg-gray-900 shadow-lg">
+          <nav className="max-w-screen-xl mx-auto px-4 py-5">
+            <div className="flex items-center justify-between">
+              <Link href="/" className="text-2xl font-bold text-white">
+                M Jibran Rehan BLOG
+              </Link>
+            </div>
+          </nav>
+        </header>
         {children}
+        <footer className="bg-gray-900 py-6">
+          <p className="text-center text-sm text-gray-400">
+            © {new Date().getFullYear()} M Jibran Rehan Blog. All rights reserved.
+          </p>
+        </footer>
       </body>
     </html>
   );

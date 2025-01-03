@@ -1,0 +1,127 @@
+.postPageContainer {
+  background-color: #f7fafc;
+  min-height: 100vh;
+  padding: 2rem;
+}
+
+.postContainer {
+  max-width: 1200px;
+  margin: 0 auto;
+  background-color: white;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  border-radius: 0.5rem;
+  overflow: hidden;
+}
+
+.mainImageWrapper {
+  width: 100%;
+  height: auto;
+  max-height: 600px;
+  overflow: hidden;
+}
+
+.image {
+  width: 100%;
+  height: auto;
+  object-fit: cover;
+}
+
+.contentWrapper {
+  display: grid;
+  grid-template-columns: 1fr 350px;
+  gap: 2rem;
+  padding: 2rem;
+}
+
+.content {
+  max-width: 100%;
+}
+
+.title {
+  font-size: 2.5rem;
+  font-weight: 700;
+  color: #1a202c;
+  margin-bottom: 1.5rem;
+}
+
+.description {
+  color: #4a5568;
+  font-size: 1.25rem;
+  margin-bottom: 2rem;
+}
+
+.authorWrapper {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2.5rem;
+}
+
+.authorImage {
+  border-radius: 50%;
+}
+
+.commentSection {
+  background-color: #f8fafc;
+  border-radius: 0.5rem;
+  padding: 1.5rem;
+  height: fit-content;
+  position: sticky;
+  top: 2rem;
+}
+
+.commentInput,
+.commentTextarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #e2e8f0;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.commentButton {
+  width: 100%;
+  padding: 0.75rem;
+  background-color: #4f46e5;
+  color: white;
+  border: none;
+  border-radius: 0.375rem;
+  font-weight: 500;
+  transition: background-color 0.2s;
+}
+
+.commentButton:hover {
+  background-color: #4338ca;
+}
+
+.commentList {
+  margin-top: 2rem;
+}
+
+.commentCard {
+  padding: 1rem;
+  background-color: white;
+  border-radius: 0.375rem;
+  margin-bottom: 1rem;
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+@media (max-width: 768px) {
+  .contentWrapper {
+    grid-template-columns: 1fr;
+  }
+  
+  .commentSection {
+    position: static;
+    width: 100%;
+  }
+  
+  .title {
+    font-size: 1.875rem;
+  }
+  
+  .postPageContainer {
+    padding: 1rem;
+  }
+}

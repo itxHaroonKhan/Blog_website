@@ -1,7 +1,10 @@
-import type { NextConfig } from "next";
+// next.config.ts
+import { NextConfig } from 'next'
 
-const nextConfig: NextConfig = {
-  /* config options here */
-};
+const config: NextConfig = {
+  images: {
+    domains: ['cdn.sanity.io'], // Allow images from Sanity's CDN
+  },
+}
 
-export default nextConfig;
+export default config
