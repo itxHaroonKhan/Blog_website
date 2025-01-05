@@ -1,9 +1,6 @@
-"use client";
-
-import { useState, useEffect } from "react";
-import Link from "next/link";
 import { client } from "../sanity/lib/client";
 import Image from "next/image";
+import Link from "next/link";
 
 interface Post {
   _id: string;
@@ -16,43 +13,26 @@ interface Post {
   categories: { _id: string; title: string }[];
 }
 
-const HomePage = () => {
-  const [posts, setPosts] = useState<Post[]>([]);
-  const [loading, setLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+async function fetchPosts(): Promise<Post[]> {
+  const query = `*[_type == "post"] | order(publishedAt desc) {
+    _id,
+    title,
+    slug,
+    description,
+    mainImage {
+      asset-> { url }
+    },
+    author-> { name },
+    publishedAt,
+    categories[]-> { _id, title }
+  }`;
 
-  useEffect(() => {
-    async function fetchPosts() {
-      try {
-        const query = `*[_type == "post"] | order(publishedAt desc) {
-          _id,
-          title,
-          slug,
-          description,
-          mainImage {
-            asset-> { url }
-          },
-          author-> { name },
-          publishedAt,
-          categories[]-> { _id, title }
-        }`;        
+  const posts = await client.fetch(query);
+  return posts;
+}
 
-        const data = await client.fetch(query);
-        setPosts(data);
-      } catch (err) {
-        setError("Failed to fetch posts. Please try again later.");
-        console.error("error", err);
-      } finally {
-        setLoading(false);
-      }
-    }
-
-    fetchPosts();
-  }, []);
-
-  if (loading) return <div className="text-center py-10">Loading...</div>;
-
-  if (error) return <div className="text-center py-10 text-red-500">{error}</div>;
+const HomePage = async () => {
+  const posts = await fetchPosts();
 
   return (
     <div className="container mx-auto py-8 px-4">
@@ -70,7 +50,7 @@ const HomePage = () => {
                     width={500}
                     height={300}
                     placeholder="blur"
-                    blurDataURL="/placeholder-image.jpg" // Optional: Add your own placeholder image
+                    blurDataURL="/placeholder-image.jpg"
                   />
                 </div>
               ) : (
@@ -78,7 +58,6 @@ const HomePage = () => {
                   No image available
                 </div>
               )}
-
               <div className="space-y-2">
                 <h2 className="text-xl font-semibold text-gray-900">{post.title}</h2>
                 <p className="text-sm text-gray-600">{post.description || "No description available."}</p>
