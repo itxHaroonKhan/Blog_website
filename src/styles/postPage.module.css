@@ -125,3 +125,9 @@
     padding: 1rem;
   }
 }
+
+.footerText {
+  text-align: center;
+  font-size: 0.875rem; /* Equivalent to text-sm */
+  color: #9ca3af; /* Equivalent to text-gray-400 */
+}
