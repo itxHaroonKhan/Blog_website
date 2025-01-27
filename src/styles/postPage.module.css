@@ -1,9 +1,16 @@
+
+
+/* Page Container with Gradient Background */
 .postPageContainer {
-  background-color: #f7fafc;
+  background: linear-gradient(135deg, #e0f7fa, #fce4ec); /* Vibrant gradient */
   min-height: 100vh;
   padding: 2rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
+/* Post Container */
 .postContainer {
   max-width: 1200px;
   margin: 0 auto;
@@ -13,19 +20,25 @@
   overflow: hidden;
 }
 
+/* Main Image Adjustments */
 .mainImageWrapper {
   width: 100%;
-  height: auto;
-  max-height: 600px;
+  max-height: 400px; /* Reduced height */
   overflow: hidden;
 }
 
 .image {
   width: 100%;
+  max-width: 800px; /* Smaller width */
   height: auto;
-  object-fit: cover;
+  max-height: 400px; /* Reduced height */
+  object-fit: contain; /* Contain instead of cover for proper aspect ratio */
+  margin:  auto; /* Center the image */
+  display: block;
+  padding-top: 20px;
 }
 
+/* Content Wrapper */
 .contentWrapper {
   display: grid;
   grid-template-columns: 1fr 350px;
@@ -33,10 +46,12 @@
   padding: 2rem;
 }
 
+/* Content */
 .content {
   max-width: 100%;
 }
 
+/* Title and Description */
 .title {
   font-size: 2.5rem;
   font-weight: 700;
@@ -45,11 +60,12 @@
 }
 
 .description {
-  color: #4a5568;
   font-size: 1.25rem;
+  color: #4a5568;
   margin-bottom: 2rem;
 }
 
+/* Author Information */
 .authorWrapper {
   display: flex;
   align-items: center;
@@ -61,6 +77,7 @@
   border-radius: 50%;
 }
 
+/* Comments Section */
 .commentSection {
   background-color: #f8fafc;
   border-radius: 0.5rem;
@@ -95,6 +112,7 @@
   background-color: #4338ca;
 }
 
+/* Comment List and Cards */
 .commentList {
   margin-top: 2rem;
 }
@@ -107,27 +125,29 @@
   box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
 }
 
+/* Responsive Design */
 @media (max-width: 768px) {
   .contentWrapper {
     grid-template-columns: 1fr;
   }
-  
+
   .commentSection {
     position: static;
     width: 100%;
   }
-  
+
   .title {
     font-size: 1.875rem;
   }
-  
+
   .postPageContainer {
     padding: 1rem;
   }
 }
 
+/* Footer Text */
 .footerText {
   text-align: center;
-  font-size: 0.875rem; /* Equivalent to text-sm */
-  color: #9ca3af; /* Equivalent to text-gray-400 */
+  font-size: 0.875rem;
+  color: #9ca3af;
 }

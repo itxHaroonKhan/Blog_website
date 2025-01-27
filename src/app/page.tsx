@@ -1,4 +1,4 @@
-import { client } from "../sanity/lib/client";
+import { client } from "@/sanity/lib/client";
 import Image from "next/image";
 import Link from "next/link";
 
@@ -39,7 +39,10 @@ const HomePage = async () => {
       <h1 className="text-3xl font-bold text-center mb-8">Blog Posts</h1>
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {posts.map((post) => (
-          <li key={post.slug.current} className="bg-white p-6 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-xl">
+          <li
+            key={post.slug.current}
+            className="bg-white p-6 rounded-lg shadow-lg transition-all transform hover:scale-105 hover:shadow-xl"
+          >
             <Link href={`/post/${post.slug.current}`}>
               <div className="block cursor-pointer">
                 {post.mainImage?.asset?.url ? (
@@ -60,12 +63,18 @@ const HomePage = async () => {
                   </div>
                 )}
                 <div className="space-y-2">
-                  <h2 className="text-xl font-semibold text-gray-900">{post.title}</h2>
-                  <p className="text-sm text-gray-600">{post.description || "No description available."}</p>
+                  <h2 className="text-xl font-semibold text-gray-900">
+                    {post.title}
+                  </h2>
+                  <p className="text-sm text-gray-600">
+                    {post.description || "No description available."}
+                  </p>
                   <div className="flex items-center space-x-2 text-gray-500 text-xs">
                     {post.author && <span>{post.author.name}</span>}
                     <span>•</span>
-                    <span>{new Date(post.publishedAt).toLocaleDateString()}</span>
+                    <span>
+                      {new Date(post.publishedAt).toLocaleDateString()}
+                    </span>
                   </div>
                   {post.categories.length > 0 && (
                     <div className="flex flex-wrap mt-2 space-x-2">
