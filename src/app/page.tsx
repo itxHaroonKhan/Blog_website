@@ -36,7 +36,7 @@ const HomePage = async () => {
 
   return (
     <div className="container mx-auto py-8 px-4">
-      <h1 className="text-3xl font-bold text-center mb-8">Blog Posts</h1>
+      <h1 className="text-3xl font-bold text-center mb-8 text-white ">Blog Posts</h1>
       <ul className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-8">
         {posts.map((post) => (
           <li
@@ -81,7 +81,7 @@ const HomePage = async () => {
                       {post.categories.map((category) => (
                         <span
                           key={category._id}
-                          className="px-3 py-1 text-sm bg-blue-100 text-blue-700 rounded-full"
+                          className="px-3 py-1 text-sm bg-blue-100 text-black rounded-full"
                         >
                           {category.title}
                         </span>
@@ -89,7 +89,7 @@ const HomePage = async () => {
                     </div>
                   )}
                   <div className="mt-4">
-                    <span className="inline-block px-4 py-2 text-sm text-white bg-blue-600 rounded-lg hover:bg-blue-700">
+                    <span className="inline-block px-4 py-2 text-sm text-white bg-black rounded-lg hover:bg-blue-700">
                       View More
                     </span>
                   </div>

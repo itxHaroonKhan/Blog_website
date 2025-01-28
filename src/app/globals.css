@@ -7,11 +7,5 @@
 body {
     margin: 0;
     padding: 0;
-    background-image: url('https://i.pinimg.com/736x/ef/ec/e4/efece4b6e24d7c10c824231d19c83d53.jpg');
     background-color: black;
-    background-size: contain; /* Scales the image to fit within the viewport */
-    background-position: center; /* Centers the image */
-    background-repeat: no-repeat; /* Prevents the image from repeating */
-    background-attachment: fixed; /* Makes the background fixed while scrolling */
-    font-family: Arial, sans-serif;
   }
